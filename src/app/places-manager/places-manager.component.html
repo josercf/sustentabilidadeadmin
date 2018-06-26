@@ -1,0 +1,94 @@
+<div class="container">
+  <form #f="ngForm">
+    <div class="field">
+      <label class="label">Nome escola</label>
+      <div class="control">
+        <input type="text" class="input" id="name" required [(ngModel)]="model.Name" name="name">
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Titulo ação</label>
+      <div class="control">
+        <input type="text" class="input" id="description" required [(ngModel)]="model.Description" name="description">
+      </div>
+    </div>
+
+
+    <fieldset>
+      <legend>Dados adicionais</legend>
+      <div class="field">
+        <button class="button" (click)="add();">Nova descrição</button>
+      </div>
+
+      <div class="" *ngFor="let d of model.Content; let i = index">
+        <div class="field ">
+          <label class="label">Titulo</label>
+          <div class="control">
+            <input type="text" class="input" [(ngModel)]="model.Content[i].Title" name="{{d.Title +   '-'  + i}}" />
+          </div>
+        </div>
+        <div class="field ">
+          <label class="label">Descrição</label>
+          <div class="control">
+            <textarea class="textarea" [(ngModel)]="model.Content[i].Detail" name="{{d.Detail +   '-'  + i}}"></textarea>
+          </div>
+        </div>
+        <button class="button" (click)="remove(model.Content[i]);">Remover</button>
+      </div>
+    </fieldset>
+
+    <div class="columns">
+      <div class="field column">
+        <label class="label">Descrição imagem</label>
+        <div class="control">
+          <input type="text" class="input" id="imagedescription" required [(ngModel)]="model.ImageDescripton" name="imagedescription">
+        </div>
+      </div>
+
+      <div class="file column">
+        <label class="file-label">
+          <input class="file-input" type="file" name="resume">
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label">
+              Choose a file…
+            </span>
+          </span>
+        </label>
+      </div>
+
+    </div>
+
+    <div class="field">
+      <label class="label">Telefone Contato</label>
+      <div class="control">
+        <input type="text" class="input" id="phone" required [(ngModel)]="model.Phone" name="phone">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">CEP</label>
+      <div class="control">
+        <input type="text" class="input" id="cep" required [(ngModel)]="cep" name="cep">
+      </div>
+      <button class="button" (click)="buscarCEP();">BuscarCEP</button>
+    </div>
+
+    <div *ngIf="wait" class="notification is-warning">
+      <strong>AGUARDE</strong>, estamos buscando o CEP informado
+    </div>
+
+    <div class="field">
+      <label class="label">Endereço</label>
+      <div class="control">
+        <input type="text" class="input" id="endereco" required [(ngModel)]="endereco" name="endereco">
+      </div>
+      <p *ngIf="endereco">Por favor, adicione o número ao endereço encontrado</p>
+    </div>
+
+    <button class="button" (click)="salvar();">Salvar</button>
+
+  </form>
+</div>
