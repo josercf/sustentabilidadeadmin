@@ -1,0 +1,30 @@
+<section class="hero is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="column is-4 is-offset-4">
+        <h3 class="title has-text-grey">Login</h3>
+        <p class="subtitle has-text-grey">Por favor, faça o login para acessar.</p>
+        <div class="box">
+          <figure class="avatar">
+            <img src="https://sustentabilidadeescolar.com.br/assets/imgs/Texto_complementar.png">
+          </figure>
+          <form #f="ngForm">
+            <div class="field">
+              <div class="control">
+                <input class="input is-large" type="email" required [(ngModel)]="model.email" placeholder="Email" name="email" autofocus="">
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control">
+                <input class="input is-large" type="password" required [(ngModel)]="model.password" name="password" placeholder="Senha">
+              </div>
+            </div>
+            <button class="button is-block is-info is-large is-fullwidth" (click)="logar()">Acessar</button>
+            <p *ngIf="hasError" class="has-text-danger">Usuário ou senha inválidos</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

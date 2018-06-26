@@ -1,20 +1,20 @@
 export class Content {
-    Title: string;
-    Detail: string
+    title: string;
+    detail: string
 }
 
 export class Position {
-    Lat: number;
-    Lng: number
+    lat: number;
+    lng: number
 }
 
 export class Place {
-    Name: string;
-    Description: string;
-    Content: Content[] = [];
-    ImageDescripton: string;
-    Image: string;
-    Phone: string;
-    Location: string;
-    Position: Position
+    name: string;
+    description: string;
+    content: Content[] = [];
+    imageDescripton: string;
+    image: string;
+    phone: string;
+    location: string;
+    position: Position
 }

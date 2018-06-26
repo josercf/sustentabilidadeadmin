@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          <abbr title="Escola">Escola</abbr>
+        </th>
+        <th>
+          <abbr title="Ação">Ação</abbr>
+        </th>
+        <th>
+          <abbr title="Tel.">Tel.</abbr>
+        </th>
+        <th>
+          <abbr title="Endereço">Endereço</abbr>
+        </th>
+        <th>Ver/Editar</th>
+        <!-- <th>Excluir</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items">
+        <td>{{item.name}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.phone}}</td>
+        <td>{{item.location}}</td>
+        <td>
+          <a class="" [routerLink]="['/edit', item.key]">Ver</a>
+        </td>
+        <!-- <td>
+          <button class="delete is-medium" (click)="excluir(item);"></button>
+        </td> -->
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,47 +1,52 @@
+<app-navbar></app-navbar>
 <div class="container">
   <form #f="ngForm">
     <div class="field">
       <label class="label">Nome escola</label>
       <div class="control">
-        <input type="text" class="input" id="name" required [(ngModel)]="model.Name" name="name">
+        <input type="text" class="input" id="name" required [(ngModel)]="model.name" name="name">
       </div>
     </div>
     <div class="field">
       <label class="label">Titulo ação</label>
       <div class="control">
-        <input type="text" class="input" id="description" required [(ngModel)]="model.Description" name="description">
+        <input type="text" class="input" id="description" required [(ngModel)]="model.description" name="description">
       </div>
     </div>
 
 
-    <fieldset>
-      <legend>Dados adicionais</legend>
-      <div class="field">
-        <button class="button" (click)="add();">Nova descrição</button>
-      </div>
-
-      <div class="" *ngFor="let d of model.Content; let i = index">
+    <div>
+      <span>Dados adicionais</span>
+      <div class="" *ngFor="let d of model.content; let i = index">
         <div class="field ">
           <label class="label">Titulo</label>
           <div class="control">
-            <input type="text" class="input" [(ngModel)]="model.Content[i].Title" name="{{d.Title +   '-'  + i}}" />
+            <input type="text" class="input" [(ngModel)]="model.content[i].title" name="{{d.title +   '-'  + i}}" />
           </div>
         </div>
         <div class="field ">
           <label class="label">Descrição</label>
           <div class="control">
-            <textarea class="textarea" [(ngModel)]="model.Content[i].Detail" name="{{d.Detail +   '-'  + i}}"></textarea>
+            <textarea class="textarea" [(ngModel)]="model.content[i].detail" name="{{d.detail +   '-'  + i}}"></textarea>
           </div>
         </div>
-        <button class="button" (click)="remove(model.Content[i]);">Remover</button>
+        <div class="columns">
+          <div class="column">
+            <button class="button" (click)="remove(model.content[i]);">Remover</button>
+          </div>
+        </div>
       </div>
-    </fieldset>
+
+      <div class="column">
+        <button class="button pull-right" (click)="add();">Nova descrição</button>
+      </div>
+    </div>
 
     <div class="columns">
       <div class="field column">
         <label class="label">Descrição imagem</label>
         <div class="control">
-          <input type="text" class="input" id="imagedescription" required [(ngModel)]="model.ImageDescripton" name="imagedescription">
+          <input type="text" class="input" id="imagedescription" required [(ngModel)]="model.imageDescripton" name="imagedescription">
         </div>
       </div>
 
@@ -64,7 +69,7 @@
     <div class="field">
       <label class="label">Telefone Contato</label>
       <div class="control">
-        <input type="text" class="input" id="phone" required [(ngModel)]="model.Phone" name="phone">
+        <input type="text" class="input" id="phone" required [(ngModel)]="model.phone" name="phone">
       </div>
     </div>
 
@@ -88,7 +93,12 @@
       <p *ngIf="endereco">Por favor, adicione o número ao endereço encontrado</p>
     </div>
 
-    <button class="button" (click)="salvar();">Salvar</button>
+    <button class="button is-primary is-pulled-right" (click)="salvar();">Salvar</button>
 
   </form>
+</div>
+
+<div *ngIf="this.wait" class="notification is-link">
+  <button class="delete"></button>
+  Aguarde, estamos salvando os dados em nossos servidores.
 </div>
