@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Place, Content } from '../models/place';
 
 import { HttpClient } from '@angular/common/http';
-import { Observable } from '../../../node_modules/rxjs';
 import { environment } from '../../environments/environment';
 import { ActivatedRoute } from '@angular/router';
 

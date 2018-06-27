@@ -1,6 +1,11 @@
 <app-navbar></app-navbar>
 <div class="container">
   <form #f="ngForm">
+
+  
+
+   
+
     <div class="field">
       <label class="label">Nome escola</label>
       <div class="control">
@@ -63,9 +68,7 @@
           </span>
         </label>
       </div>
-
     </div>
-
     <div class="field">
       <label class="label">Telefone Contato</label>
       <div class="control">
@@ -92,10 +95,36 @@
       </div>
       <p *ngIf="endereco">Por favor, adicione o número ao endereço encontrado</p>
     </div>
+    <fieldset class="field" style="padding: 15px">
+        <legend>Participante da(s) seguinte(s) ação(ões) sustentável(eis):</legend>
+        <h3> <strong>Serviços</strong></h3>
+          <input type="checkbox" checked /> elétrica
+          <input type="checkbox" />encanamento
+          <input type="checkbox" />alvenaria
+          <input type="checkbox" />pintura
+          <input type="checkbox" />marcenaria
+          <input type="checkbox" />ajudante
+          <br><br>
+          <h3> <strong>Voluntários</strong></h3>
+          <input type="checkbox" checked/> Limpeza
+          <input type="checkbox" />Educação
+          <input type="checkbox" />Social
+          <br><br>
+          <h3> <strong>Doador</strong></h3>
+          <input type="checkbox" checked /> material escolar
+          <input type="checkbox" />material de limpeza
+          <input type="checkbox" />material reciclável
+          
+          <br><br>
+          <h3> <strong>Empresas parceiras</strong></h3>
+          <input type="checkbox" /> material reciclável
+          <input type="checkbox" />material nociso
+      </fieldset>
 
     <button class="button is-primary is-pulled-right" (click)="salvar();">Salvar</button>
 
   </form>
+ 
 </div>
 
 <div *ngIf="this.wait" class="notification is-link">

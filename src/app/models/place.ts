@@ -16,5 +16,6 @@ export class Place {
     image: string;
     phone: string;
     location: string;
-    position: Position
+    position: Position;
+  
 }
